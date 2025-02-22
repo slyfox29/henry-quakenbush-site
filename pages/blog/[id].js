@@ -5,14 +5,14 @@ import { useRouter } from 'next/router';
 export default function BlogPost() {
   const router = useRouter();
   const { id } = router.query;
-  const post = posts.find(p => p.id === parseInt(id));
+  const post = posts.find(p => p.id.toString() === id);
 
   if (!post) {
     return (
       <Layout>
-        <section className="blog">
+        <section className="blog-post">
           <h2 className="section-title illuminated">Post Not Found</h2>
-          <p className="blog-content">Sorry, this blog post doesn’t exist.</p>
+          <p>Sorry, this blog post doesn’t exist.</p>
         </section>
       </Layout>
     );
@@ -20,11 +20,11 @@ export default function BlogPost() {
 
   return (
     <Layout>
-      <section className="blog single-post">
+      <section className="blog-post">
         <h2 className="section-title illuminated">{post.title}</h2>
-        <div className="blog-card glass-card">
-          <p className="blog-content">{post.content}</p>
-          <small className="blog-date">{new Date(post.date).toLocaleDateString()}</small>
+        <small className="blog-date">{new Date(post.date).toLocaleDateString()}</small>
+        <div className="blog-content glass-card">
+          <p>{post.content}</p>
         </div>
       </section>
     </Layout>
