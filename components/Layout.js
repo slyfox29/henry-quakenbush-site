@@ -1,5 +1,4 @@
 import Nav from './Nav';
-import { Analytics } from "@vercel/analytics/react"
 
 export default function Layout({ children }) {
   return (
