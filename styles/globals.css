@@ -145,7 +145,7 @@ body {
 }
 
 [data-theme="dark"] .hero {
-  background: linear-gradient(135deg, #2a2a2a, #1a1a1a); /* Darker gradient */
+  background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
 }
 
 .hero-title {
@@ -284,6 +284,29 @@ body {
   padding: 5rem 2rem;
 }
 
+.blog-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.sort-label {
+  font-size: 1.1rem;
+  color: var(--text-light);
+}
+
+.sort-select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text-dark);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+}
+
 .blog-grid {
   display: grid;
   gap: 2.5rem;
@@ -293,12 +316,15 @@ body {
 
 .blog-card {
   padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .blog-title {
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   color: var(--primary);
 }
 
@@ -311,7 +337,43 @@ body {
   display: block;
   color: var(--text-light);
   font-size: 0.95rem;
-  margin-top: 0.75rem;
+}
+
+.vote-controls {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.vote-btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.vote-btn:hover {
+  transform: scale(1.05);
+}
+
+.upvote {
+  background: linear-gradient(135deg, rgba(10, 132, 255, 0.2), rgba(10, 132, 255, 0.1));
+}
+
+.downvote {
+  background: linear-gradient(135deg, rgba(255, 45, 85, 0.2), rgba(255, 45, 85, 0.1));
+}
+
+[data-theme="dark"] .upvote {
+  background: linear-gradient(135deg, rgba(77, 171, 247, 0.2), rgba(77, 171, 247, 0.1));
+}
+
+[data-theme="dark"] .downvote {
+  background: linear-gradient(135deg, rgba(255, 107, 129, 0.2), rgba(255, 107, 129, 0.1));
 }
 
 /* Calendar */
@@ -368,7 +430,7 @@ body {
 }
 
 [data-theme="dark"] .has-event {
-  background: linear-gradient(135deg, #2b6cb0, #9b2d47); /* Darker gradient */
+  background: linear-gradient(135deg, #2b6cb0, #9b2d47);
 }
 
 .event-title {
