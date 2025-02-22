@@ -4,7 +4,7 @@ export default function About() {
   return (
     <Layout>
       <section className="about">
-        <h2 className="section-title">About Me</h2>
+        <h2 className="section-title illuminated">About Me</h2>
         <p className="about-text">
           I’m Henry Quakenbush—a [your profession, e.g., designer, developer, writer] with a passion for crafting meaningful experiences. 
           Whether it’s through code, words, or visuals, I thrive on turning ideas into reality. 
