@@ -1,34 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Layout from '../components/Layout';
 import posts from '../data/posts.json';
 
 export default function Blog() {
   const [sortBy, setSortBy] = useState('date-desc');
-  const [votes, setVotes] = useState(() => {
-    // Load votes from localStorage or initialize
-    const savedVotes = localStorage.getItem('blogVotes');
-    return savedVotes
-      ? JSON.parse(savedVotes)
-      : posts.reduce((acc, post) => ({
-          ...acc,
-          [post.id]: { upvotes: 0, downvotes: 0 }
-        }), {});
-  });
-
-  // Save votes to localStorage whenever they change
-  useEffect(() => {
-    localStorage.setItem('blogVotes', JSON.stringify(votes));
-  }, [votes]);
-
-  const handleVote = (id, type) => {
-    setVotes(prev => ({
-      ...prev,
-      [id]: {
-        ...prev[id],
-        [type]: prev[id][type] + 1
-      }
-    }));
-  };
 
   const sortedPosts = [...posts].sort((a, b) => {
     switch (sortBy) {
@@ -69,20 +44,6 @@ export default function Blog() {
               <h3 className="blog-title">{post.title}</h3>
               <p className="blog-content">{post.content}</p>
               <small className="blog-date">{new Date(post.date).toLocaleDateString()}</small>
-              <div className="vote-controls">
-                <button
-                  onClick={() => handleVote(post.id, 'upvotes')}
-                  className="vote-btn upvote"
-                >
-                  ▲ {votes[post.id].upvotes}
-                </button>
-                <button
-                  onClick={() => handleVote(post.id, 'downvotes')}
-                  className="vote-btn downvote"
-                >
-                  ▼ {votes[post.id].downvotes}
-                </button>
-              </div>
             </article>
           ))}
         </div>
