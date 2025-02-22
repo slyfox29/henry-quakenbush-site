@@ -105,7 +105,7 @@ body {
   left: 5px;
   width: 20px;
   height: 20px;
-  background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffcc00"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16z"/></svg>') no-repeat center;
+  background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffcc00"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 0116z"/></svg>') no-repeat center;
   background-size: 16px;
   border-radius: 50%;
   transition: transform 0.3s ease;
@@ -142,7 +142,10 @@ body {
   text-align: center;
   padding: 7rem 2rem;
   background: linear-gradient(135deg, #e0e0e0, var(--bg-light));
-  animation: fadeIn 1.5s ease-in-out;
+}
+
+[data-theme="dark"] .hero {
+  background: linear-gradient(135deg, #2a2a2a, #1a1a1a); /* Darker gradient */
 }
 
 .hero-title {
@@ -189,6 +192,10 @@ body {
   z-index: -1;
 }
 
+[data-theme="dark"] .glass-card::before {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+}
+
 /* Social Grid */
 .social-grid {
   display: grid;
@@ -223,14 +230,14 @@ body {
   font-weight: 700;
   text-align: center;
   margin-bottom: 3rem;
-  background: linear-gradient(90deg, var(--accent), var(--primary)); /* Light mode gradient */
+  background: linear-gradient(90deg, var(--accent), var(--primary));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 [data-theme="dark"] .illuminated {
-  background: none; /* Remove gradient in dark mode */
+  background: none;
   color: var(--primary);
   text-shadow: 0 0 10px rgba(10, 132, 255, 0.5);
   animation: illuminate 2s infinite alternate;
@@ -244,14 +251,31 @@ body {
 /* About */
 .about {
   padding: 5rem 2rem;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-photo {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .about-text {
   font-size: 1.3rem;
   color: var(--text-light);
-  margin-bottom: 2rem;
   animation: fadeInUp 1s ease forwards;
 }
 
@@ -341,7 +365,10 @@ body {
 
 .has-event {
   background: linear-gradient(135deg, var(--primary), var(--accent));
-  color: var(--card-bg);
+}
+
+[data-theme="dark"] .has-event {
+  background: linear-gradient(135deg, #2b6cb0, #9b2d47); /* Darker gradient */
 }
 
 .event-title {
