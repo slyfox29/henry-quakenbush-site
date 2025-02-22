@@ -1,8 +1,20 @@
 [
   {
     "id": 1,
-    "title": "First Thoughts",
-    "content": "February 21, 2025 - A minimalist start to something big. Stay tuned.",
+    "title": "A New Beginning",
+    "content": "February 21, 2025 - Starting this site feels like planting a seed. I’m excited to see where it grows—reflections on life, tech, and creativity to come.",
     "date": "2025-02-21T12:00:00Z"
+  },
+  {
+    "id": 2,
+    "title": "Minimalism in Design",
+    "content": "Inspired by Apple’s clean lines and purposeful simplicity, I’m exploring how less can be more in my work and life.",
+    "date": "2025-02-25T10:00:00Z"
+  },
+  {
+    "id": 3,
+    "title": "The Future is Now",
+    "content": "Thoughts on AI, creativity, and where we’re headed. Spoiler: it’s both thrilling and terrifying.",
+    "date": "2025-03-01T15:00:00Z"
   }
 ]
