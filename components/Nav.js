@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 export default function Nav() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // Load theme from localStorage on mount
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
@@ -13,7 +12,6 @@ export default function Nav() {
     }
   }, []);
 
-  // Toggle theme
   const toggleDarkMode = () => {
     const newMode = !isDarkMode;
     setIsDarkMode(newMode);
