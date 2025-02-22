@@ -9,6 +9,7 @@
   --shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
   --shadow-hover: 0 16px 32px rgba(0, 0, 0, 0.12);
   --glass-border: rgba(255, 255, 255, 0.18);
+  --glow-blue: #0a84ff; /* Matches --primary for blue glow */
 }
 
 [data-theme="dark"] {
@@ -18,7 +19,7 @@
   --text-dark: #e0e0e0;
   --text-light: #a0a0a0;
   --bg-light: #1a1a1a;
-  --card-bg: rgba(40, 40, 40, 0.2);
+  --card-bg: rgba(40, 40, 40, 0.8); /* Darker base for glow */
   --shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
   --shadow-hover: 0 16px 32px rgba(0, 0, 0, 0.5);
   --glass-border: rgba(255, 255, 255, 0.1);
@@ -162,7 +163,7 @@ body {
   font-weight: 300;
 }
 
-/* Glass Cards */
+/* Glass Cards (Light Mode) */
 .glass-card {
   position: relative;
   background: var(--card-bg);
@@ -174,7 +175,7 @@ body {
   box-shadow: var(--shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
-  cursor: pointer; /* Indicates clickability */
+  cursor: pointer;
 }
 
 .glass-card:hover {
@@ -193,8 +194,36 @@ body {
   z-index: -1;
 }
 
+/* Glowing Cards (Dark Mode) */
+[data-theme="dark"] .glass-card {
+  background: var(--card-bg);
+  backdrop-filter: none; /* Remove glass effect */
+  border: none; /* Remove border for glow focus */
+  box-shadow: 0 0 15px rgba(10, 132, 255, 0.5), /* Base glow */
+              0 0 25px rgba(10, 132, 255, 0.3);
+  animation: glowPulse 2s infinite alternate;
+}
+
+[data-theme="dark"] .glass-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(10, 132, 255, 0.7), /* Stronger glow on hover */
+              0 0 40px rgba(10, 132, 255, 0.5);
+}
+
 [data-theme="dark"] .glass-card::before {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  background: none; /* Remove gradient in dark mode */
+}
+
+/* Glow Animation */
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 15px rgba(10, 132, 255, 0.5),
+                0 0 25px rgba(10, 132, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(10, 132, 255, 0.7),
+                0 0 35px rgba(10, 132, 255, 0.4);
+  }
 }
 
 /* Social Grid */
@@ -226,31 +255,7 @@ body {
 }
 
 .social-logo.no-filter {
-  filter: none; /* Removes the blue tint for YouTube */
-}
-
-/* Illuminated Text */
-.illuminated {
-  font-size: 3rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 3rem;
-  background: linear-gradient(90deg, var(--accent), var(--primary));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-[data-theme="dark"] .illuminated {
-  background: none;
-  color: var(--primary);
-  text-shadow: 0 0 10px rgba(10, 132, 255, 0.5);
-  animation: illuminate 2s infinite alternate;
-}
-
-@keyframes illuminate {
-  0% { text-shadow: 0 0 10px rgba(10, 132, 255, 0.5), 0 0 20px rgba(10, 132, 255, 0.3); }
-  100% { text-shadow: 0 0 20px rgba(10, 132, 255, 0.7), 0 0 30px rgba(10, 132, 255, 0.5); }
+  filter: none;
 }
 
 /* About */
@@ -261,13 +266,13 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  align-items: start; /* Aligns content at the top */
+  align-items: start;
 }
 
 .about-photo {
   width: 100%;
   max-width: 400px;
-  border-radius: 12px; /* Slightly smaller radius for photo inside glass card */
+  border-radius: 20px;
   box-shadow: var(--shadow);
   animation: fadeInUp 1s ease forwards;
 }
@@ -287,6 +292,18 @@ body {
 /* Blog */
 .blog {
   padding: 5rem 2rem;
+}
+
+.blog-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.blog-intro {
+  font-size: 1.3rem;
+  color: var(--text-light);
+  max-width: 800px;
+  margin: 1rem auto;
 }
 
 .blog-controls {
@@ -367,7 +384,7 @@ body {
   color: var(--primary);
 }
 
-.blog-content {
+.blog-preview {
   color: var(--text-dark);
   font-size: 1.1rem;
 }
@@ -386,9 +403,25 @@ body {
   text-align: center;
 }
 
+.post-header {
+  margin-bottom: 2rem;
+}
+
 .blog-post .blog-content {
   padding: 2.5rem;
   text-align: left;
+}
+
+.post-image {
+  margin: 2rem 0;
+  padding: 0;
+}
+
+.post-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
 }
 
 /* Calendar */
