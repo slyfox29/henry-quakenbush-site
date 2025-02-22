@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Twitter",
+    "url": "https://twitter.com/yourhandle",
+    "logo": "/logos/twitter.svg"
+  },
+  {
+    "title": "Instagram",
+    "url": "https://instagram.com/yourhandle",
+    "logo": "/logos/instagram.svg"
+  },
+  {
+    "title": "LinkedIn",
+    "url": "https://linkedin.com/in/yourhandle",
+    "logo": "/logos/linkedin.svg"
+  },
+  {
+    "title": "GitHub",
+    "url": "https://github.com/yourhandle",
+    "logo": "/logos/github.svg"
+  }
+]
