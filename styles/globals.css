@@ -19,7 +19,7 @@
   --text-dark: #e0e0e0;
   --text-light: #a0a0a0;
   --bg-light: #1a1a1a;
-  --card-bg: rgba(40, 40, 40, 0.8); /* Darker base for glow */
+  --card-bg: rgba(40, 40, 40, 0.8);
   --shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
   --shadow-hover: 0 16px 32px rgba(0, 0, 0, 0.5);
   --glass-border: rgba(255, 255, 255, 0.1);
@@ -65,6 +65,12 @@ body {
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
+}
+
+[data-theme="dark"] .nav {
+  box-shadow: 0 0 15px rgba(10, 132, 255, 0.5), /* Blue glow rim */
+              0 0 25px rgba(10, 132, 255, 0.3);
+  animation: glowPulse 2s infinite alternate;
 }
 
 .nav-link {
@@ -197,21 +203,21 @@ body {
 /* Glowing Cards (Dark Mode) */
 [data-theme="dark"] .glass-card {
   background: var(--card-bg);
-  backdrop-filter: none; /* Remove glass effect */
-  border: none; /* Remove border for glow focus */
-  box-shadow: 0 0 15px rgba(10, 132, 255, 0.5), /* Base glow */
+  backdrop-filter: none;
+  border: none;
+  box-shadow: 0 0 15px rgba(10, 132, 255, 0.5),
               0 0 25px rgba(10, 132, 255, 0.3);
   animation: glowPulse 2s infinite alternate;
 }
 
 [data-theme="dark"] .glass-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 0 25px rgba(10, 132, 255, 0.7), /* Stronger glow on hover */
+  box-shadow: 0 0 25px rgba(10, 132, 255, 0.7),
               0 0 40px rgba(10, 132, 255, 0.5);
 }
 
 [data-theme="dark"] .glass-card::before {
-  background: none; /* Remove gradient in dark mode */
+  background: none;
 }
 
 /* Glow Animation */
@@ -271,9 +277,9 @@ body {
 
 .about-photo-wrapper {
   width: 100%;
-  height: 500px; /* Fixed height; adjust as needed */
+  height: 500px;
   border-radius: 20px;
-  overflow: hidden; /* Crops excess image */
+  overflow: hidden;
 }
 
 .about-photo {
@@ -286,6 +292,12 @@ body {
   display: block;
 }
 
+[data-theme="dark"] .about-photo {
+  box-shadow: 0 0 15px rgba(10, 132, 255, 0.5),
+              0 0 25px rgba(10, 132, 255, 0.3);
+  animation: glowPulse 2s infinite alternate;
+}
+
 .about-content {
   display: flex;
   flex-direction: column;
@@ -296,6 +308,36 @@ body {
   font-size: 1.3rem;
   color: var(--text-light);
   animation: fadeInUp 1s ease forwards;
+}
+
+/* Section Titles (Headers) */
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+[data-theme="dark"] .section-title {
+  background: none;
+  color: var(--primary);
+  text-shadow: 0 0 10px rgba(10, 132, 255, 0.5);
+  animation: illuminate 2s infinite alternate;
+}
+
+/* Illuminated Headers */
+.illuminated {
+  /* No additional styles needed; inherits from .section-title */
+}
+
+/* Illuminate Animation for Headers */
+@keyframes illuminate {
+  0% { text-shadow: 0 0 10px rgba(10, 132, 255, 0.5), 0 0 20px rgba(10, 132, 255, 0.3); }
+  100% { text-shadow: 0 0 20px rgba(10, 132, 255, 0.7), 0 0 30px rgba(10, 132, 255, 0.5); }
 }
 
 /* Blog */
