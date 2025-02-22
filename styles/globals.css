@@ -261,13 +261,17 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  align-items: center;
+  align-items: start; /* Aligns content at the top */
+}
+
+.about-photo-container {
+  padding: 1rem; /* Slight padding for glass effect */
 }
 
 .about-photo {
   width: 100%;
   max-width: 400px;
-  border-radius: 20px;
+  border-radius: 12px; /* Slightly smaller radius for photo inside glass card */
   box-shadow: var(--shadow);
   animation: fadeInUp 1s ease forwards;
 }
