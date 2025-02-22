@@ -41,12 +41,12 @@ export default function Blog() {
         </div>
         <div className="blog-grid">
           {sortedPosts.map(post => (
-            <Link key={post.id} href={`/blog/${post.id}`} legacyBehavior>
-              <a className="blog-card glass-card">
+            <Link key={post.id} href={`/blog/${post.id}`} passHref>
+              <article className="blog-card glass-card">
                 <h3 className="blog-title">{post.title}</h3>
                 <p className="blog-content">{post.content.substring(0, 100)}...</p>
                 <small className="blog-date">{new Date(post.date).toLocaleDateString()}</small>
-              </a>
+              </article>
             </Link>
           ))}
         </div>
