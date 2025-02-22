@@ -5,7 +5,7 @@ export default function About() {
     <Layout>
       <section className="about">
         <img
-          src="/photo.jpg" // Replace with your photo path in public/
+          src="/henryquakenbush.jpeg" // Replace with your photo path in public/
           alt="Henry Quakenbush"
           className="about-photo"
         />
