@@ -299,7 +299,7 @@ body {
 }
 
 .sort-select {
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 3rem 0.75rem 1.5rem; /* Extra right padding for arrow */
   font-size: 1.1rem;
   font-weight: 500;
   border-radius: 12px;
@@ -310,11 +310,11 @@ body {
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  appearance: none; /* Remove default arrow */
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="%231c2526" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>'); /* Custom arrow */
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="%231c2526" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
   background-repeat: no-repeat;
   background-position: right 1rem center;
-  padding-right: 2.5rem;
+  background-size: 12px;
 }
 
 [data-theme="dark"] .sort-select {
@@ -329,6 +329,16 @@ body {
 .sort-select:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.3);
+}
+
+.sort-select option {
+  background: var(--bg-light);
+  color: var(--text-dark);
+}
+
+[data-theme="dark"] .sort-select option {
+  background: #2a2a2a;
+  color: var(--text-dark);
 }
 
 .blog-grid {
@@ -361,43 +371,6 @@ body {
   display: block;
   color: var(--text-light);
   font-size: 0.95rem;
-}
-
-.vote-controls {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.vote-btn {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  background: var(--card-bg);
-  color: var(--text-dark);
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.vote-btn:hover {
-  transform: scale(1.05);
-}
-
-.upvote {
-  background: linear-gradient(135deg, rgba(10, 132, 255, 0.2), rgba(10, 132, 255, 0.1));
-}
-
-.downvote {
-  background: linear-gradient(135deg, rgba(255, 45, 85, 0.2), rgba(255, 45, 85, 0.1));
-}
-
-[data-theme="dark"] .upvote {
-  background: linear-gradient(135deg, rgba(77, 171, 247, 0.2), rgba(77, 171, 247, 0.1));
-}
-
-[data-theme="dark"] .downvote {
-  background: linear-gradient(135deg, rgba(255, 107, 129, 0.2), rgba(255, 107, 129, 0.1));
 }
 
 /* Calendar */
