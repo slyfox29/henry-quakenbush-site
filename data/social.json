@@ -2,13 +2,13 @@
   {
     "title": "Youtube (Group)",
     "url": "https://www.youtube.com/@seaofglass46",
-    "logo": "logos/youtube.svg"
-    "noFilter": true,
+    "logo": "logos/youtube.svg",
+    "noFilter": true
   },
   {
     "title": "Youtube",
     "url": "https://www.youtube.com/@thequakenmusic",
-    "logo": "logos/youtube.svg"
+    "logo": "logos/youtube.svg",
     "noFilter": true,
   },
   {
