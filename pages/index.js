@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <Layout>
       <header className="hero">
-        <h1 className="hero-title">Henry Quakenbush</h1>
+        <h1 className="hero-title illuminated">Henry Quakenbush</h1>
         <p className="hero-subtitle">Creative thinker, digital explorer, and storyteller.</p>
       </header>
       <section className="social-grid">
@@ -15,7 +15,7 @@ export default function Home() {
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="social-card"
+            className="social-card glass-card"
           >
             <img src={link.logo} alt={`${link.title} logo`} className="social-logo" />
             <span>{link.title}</span>
