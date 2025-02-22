@@ -17,7 +17,11 @@ export default function Home() {
             rel="noopener noreferrer"
             className="social-card glass-card"
           >
-            <img src={link.logo} alt={`${link.title} logo`} className="social-logo" />
+            <img
+              src={link.logo}
+              alt={`${link.title} logo`}
+              className={`social-logo ${link.noFilter ? 'no-filter' : ''}`}
+            />
             <span>{link.title}</span>
           </a>
         ))}
