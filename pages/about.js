@@ -4,13 +4,11 @@ export default function About() {
   return (
     <Layout>
       <section className="about">
-        <div className="about-photo-container glass-card">
-          <img
-            src="/henryquakenbush.jpeg"
-            alt="Henry Quakenbush"
-            className="about-photo"
-          />
-        </div>
+        <img
+          src="/henryquakenbush.jpeg"
+          alt="Henry Quakenbush"
+          className="about-photo"
+        />
         <div className="about-content">
           <h2 className="section-title illuminated">About Henry Quakenbush</h2>
           <p className="about-text">
