@@ -2,21 +2,21 @@
   {
     "title": "Youtube (Group)",
     "url": "https://www.youtube.com/@seaofglass46",
-    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA-xEwkSz754lRPPqTiD9M-WR5UCbTKS2eNxSbTz2x-p4phr60hDUYaMtMQtzwhP5dKS0&usqp=CAU"
+    "logo": "youtube.png"
   },
   {
     "title": "Youtube",
     "url": "https://www.youtube.com/@thequakenmusic",
-    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA-xEwkSz754lRPPqTiD9M-WR5UCbTKS2eNxSbTz2x-p4phr60hDUYaMtMQtzwhP5dKS0&usqp=CAU"
+    "logo": "youtube.png"
   },
   {
     "title": "Flat.io",
     "url": "https://flat.io/@thequakenmusic/published",
-    "logo": "logos/flat.svg"
+    "logo": "flat.svg"
   },
   {
     "title": "GitHub",
     "url": "https://github.com/slyfox29",
-    "logo": "https://cdn-icons-png.flaticon.com/512/25/25231.png"
+    "logo": "github.png"
   }
 ]
