@@ -1,13 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 import posts from '../data/posts.json';
 
 export default function Blog() {
-  const [sortBy, setSortBy] = useState('date-desc'); // Default: newest first
-  const [votes, setVotes] = useState(posts.reduce((acc, post) => ({
-    ...acc,
-    [post.id]: { upvotes: 0, downvotes: 0 }
-  }), {}));
+  const [sortBy, setSortBy] = useState('date-desc');
+  const [votes, setVotes] = useState(() => {
+    // Load votes from localStorage or initialize
+    const savedVotes = localStorage.getItem('blogVotes');
+    return savedVotes
+      ? JSON.parse(savedVotes)
+      : posts.reduce((acc, post) => ({
+          ...acc,
+          [post.id]: { upvotes: 0, downvotes: 0 }
+        }), {});
+  });
+
+  // Save votes to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem('blogVotes', JSON.stringify(votes));
+  }, [votes]);
 
   const handleVote = (id, type) => {
     setVotes(prev => ({
@@ -44,7 +55,7 @@ export default function Blog() {
             id="sort"
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="sort-select"
+            className="sort-select glass-card"
           >
             <option value="date-desc">Newest First</option>
             <option value="date-asc">Oldest First</option>
