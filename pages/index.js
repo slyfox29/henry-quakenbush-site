@@ -1,5 +1,29 @@
 import Layout from '../components/Layout';
-import socialLinks from '../data/social.json';
+
+const socialLinks = [
+  {
+    "title": "Youtube Group",
+    "url": "https://www.youtube.com/@seaofglass46",
+    "logo": "/logos/youtube.svg",
+    "noFilter": true
+  },
+  {
+    "title": "Youtube",
+    "url": "https://www.youtube.com/@thequakenmusic",
+    "logo": "/logos/youtube.svg",
+    "noFilter": true
+  },
+  {
+    "title": "Flat.io",
+    "url": "https://flat.io/@thequakenmusic/published",
+    "logo": "/logos/flat.svg"
+  },
+  {
+    "title": "GitHub",
+    "url": "https://github.com/slyfox29",
+    "logo": "/logos/github.png"
+  }
+];
 
 export default function Home() {
   return (
