@@ -4,22 +4,30 @@ export default function About() {
   return (
     <Layout>
       <section className="about">
-        <img
-          src="/henryquakenbush.jpeg" // Replace with your photo path in public/
-          alt="Henry Quakenbush"
-          className="about-photo"
-        />
+        <div className="about-photo-container glass-card">
+          <img
+            src="/henryquakenbush.jpeg"
+            alt="Henry Quakenbush"
+            className="about-photo"
+          />
+        </div>
         <div className="about-content">
-          <h2 className="section-title illuminated">About Me</h2>
+          <h2 className="section-title illuminated">About Henry Quakenbush</h2>
           <p className="about-text">
-            I’m Henry Quakenbush—a [your profession, e.g., designer, developer, writer] with a passion for crafting meaningful experiences. 
-            Whether it’s through code, words, or visuals, I thrive on turning ideas into reality. Based in [your location], I’m inspired by 
-            [your influences—e.g., technology, nature, art]. My journey started [brief origin story, e.g., tinkering with computers as a kid], 
-            and now I’m here building this digital space.
+            I’m Henry Quakenbush—a graphic designer, coder, mountain biker, photographer, and artist based in Cicero, Indiana. 
+            I wear many hats, blending creativity with tech to craft experiences that resonate. Whether I’m designing sleek visuals, 
+            coding dynamic web apps, shredding trails on my bike, capturing the beauty of Indiana’s landscapes, or sketching my next piece, 
+            I’m driven by a love for making things that matter.
           </p>
           <p className="about-text">
-            Beyond work, I’m an avid [hobby 1—e.g., hiker], a [hobby 2—e.g., sci-fi reader], and a occasional [hobby 3—e.g., sketch artist]. 
-            I believe in minimalism with purpose—less noise, more impact. This site is my hub to share insights, projects, and a bit of my world.
+            Growing up in Cicero, I found inspiration in its quiet charm and rugged outdoors. That’s where my journey started—doodling trail maps 
+            as a kid, which evolved into a career in graphic design and coding. I’ve built this site with Next.js to share my work and passions, 
+            from pixel-perfect designs to gritty biking adventures. When I’m not at my desk, you’ll catch me on the trails around Morse Reservoir, 
+            camera in hand, or tinkering with code to bring my art to life.
+          </p>
+          <p className="about-text">
+            My philosophy? Minimalism with purpose—clean lines, bold ideas, and a touch of Indiana soul. Stick around to explore my blog, 
+            where I dive into design, tech, biking, and the art of seeing the world through a creative lens.
           </p>
         </div>
       </section>
