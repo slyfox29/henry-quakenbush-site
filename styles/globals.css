@@ -264,10 +264,6 @@ body {
   align-items: start; /* Aligns content at the top */
 }
 
-.about-photo-container {
-  padding: 1rem; /* Slight padding for glass effect */
-}
-
 .about-photo {
   width: 100%;
   max-width: 400px;
