@@ -225,6 +225,10 @@ body {
   filter: brightness(0) saturate(100%) invert(40%) sepia(90%) saturate(1350%) hue-rotate(190deg);
 }
 
+.social-logo.no-filter {
+  filter: none; /* Removes the blue tint for YouTube */
+}
+
 /* Illuminated Text */
 .illuminated {
   font-size: 3rem;
