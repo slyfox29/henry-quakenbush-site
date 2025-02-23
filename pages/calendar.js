@@ -2,15 +2,15 @@ import Layout from '../components/Layout';
 import events from '../data/events.json';
 
 export default function Calendar() {
-  const today = new Date('2025-02-22'); // Using your current date; replace with `new Date()` for real-time
+  const today = new Date('2025-02-23'); // Your date; use `new Date()` for real-time
   const year = today.getFullYear();
-  const month = today.getMonth(); // 0-based (0 = Jan, 1 = Feb, etc.)
+  const month = today.getMonth();
   const monthName = today.toLocaleString('default', { month: 'long' });
   const daysInMonth = new Date(year, month + 1, 0).getDate();
-  const firstDay = new Date(year, month, 1).getDay(); // Sunday = 0
+  const firstDay = new Date(year, month, 1).getDay();
   const days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
   const blanks = Array(firstDay).fill(null);
-  const currentDay = today.getDate(); // 22 for Feb 22, 2025
+  const currentDay = today.getDate();
 
   return (
     <Layout>
