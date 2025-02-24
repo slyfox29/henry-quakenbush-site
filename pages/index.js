@@ -6,7 +6,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 3000); // 3 seconds minimum
+    const timer = setTimeout(() => setLoading(false), 3000); // Minimum 3 seconds
     return () => clearTimeout(timer);
   }, []);
 
@@ -14,7 +14,11 @@ export default function Home() {
     return (
       <div className="loader">
         <div className="snake-game">
-          <div className="snake"></div>
+          <div className="snake">
+            <div className="snake-segment"></div>
+            <div className="snake-segment"></div>
+            <div className="snake-segment"></div>
+          </div>
           <div className="food"></div>
         </div>
       </div>
@@ -44,31 +48,6 @@ export default function Home() {
             <span>{link.title}</span>
           </a>
         ))}
-      </section>
-      <section className="skills-section">
-        <h2 className="skills-title">Skills</h2>
-        <div className="skills-grid">
-          <div className="skill-card">
-            <img src="/icons/design.svg" alt="Design" className="skill-icon" />
-            <span className="skill-name">Graphic Design</span>
-          </div>
-          <div className="skill-card">
-            <img src="/icons/code.svg" alt="Code" className="skill-icon" />
-            <span className="skill-name">Coding</span>
-          </div>
-          <div className="skill-card">
-            <img src="/icons/bike.svg" alt="Bike" className="skill-icon" />
-            <span className="skill-name">Mountain Biking</span>
-          </div>
-          <div className="skill-card">
-            <img src="/icons/photo.svg" alt="Photo" className="skill-icon" />
-            <span className="skill-name">Photography</span>
-          </div>
-          <div className="skill-card">
-            <img src="/icons/art.svg" alt="Art" className="skill-icon" />
-            <span className="skill-name">Art</span>
-          </div>
-        </div>
       </section>
     </Layout>
   );
