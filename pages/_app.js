@@ -12,10 +12,12 @@ export default function MyApp({ Component, pageProps }) {
     document.body.appendChild(follower);
 
     const moveCursor = (e) => {
-      const x = e.clientX;
-      const y = e.clientY;
-      cursor.style.transform = `translate(${x}px, ${y}px)`;
-      follower.style.transform = `translate(${x}px, ${y}px)`;
+      const x = e.clientX - 10; // Center the cursor
+      const y = e.clientY - 10;
+      cursor.style.left = `${x}px`;
+      cursor.style.top = `${y}px`;
+      follower.style.left = `${x - 10}px`; // Offset follower
+      follower.style.top = `${y - 10}px`;
     };
 
     const hoverCursor = () => cursor.classList.add('cursor-hover');
