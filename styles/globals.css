@@ -40,43 +40,6 @@ body {
   cursor: none;
 }
 
-/* Fluid Motion Cursor */
-.cursor {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  background: var(--primary);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transition: width 0.3s ease, height 0.3s ease;
-  mix-blend-mode: difference;
-}
-
-.cursor-follow {
-  position: fixed;
-  width: 40px;
-  height: 40px;
-  background: rgba(0, 180, 255, 0.3);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transition: transform 0.3s ease-out;
-}
-
-[data-theme="dark"] .cursor {
-  background: var(--primary);
-}
-
-[data-theme="dark"] .cursor-follow {
-  background: rgba(102, 217, 255, 0.3);
-}
-
-.cursor.cursor-hover {
-  width: 30px;
-  height: 30px;
-}
-
 /* Loader */
 .loader {
   position: fixed;
@@ -91,57 +54,54 @@ body {
   z-index: 1000;
 }
 
-.snake-game {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  overflow: hidden;
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid var(--text-light);
+  border-top: 6px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
 }
 
-.snake {
-  display: flex;
-  position: absolute;
-  animation: snakeMove 3.5s infinite ease-in-out;
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-.snake-segment {
-  width: 20px;
-  height: 20px;
+/* Fluid Motion Cursor */
+.cursor {
+  position: fixed;
+  width: 12px; /* Smaller, faster */
+  height: 12px;
   background: var(--primary);
-  margin-right: 2px;
-  animation: grow 3.5s infinite ease-in-out;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.2s ease, height 0.2s ease; /* Faster transition */
 }
 
-.food {
-  position: absolute;
+.cursor-follow {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  background: rgba(0, 180, 255, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.2s ease-out; /* Faster follower */
+}
+
+[data-theme="dark"] .cursor {
+  background: var(--primary);
+}
+
+[data-theme="dark"] .cursor-follow {
+  background: rgba(102, 217, 255, 0.3);
+}
+
+.cursor.cursor-hover {
   width: 20px;
   height: 20px;
-  background: var(--accent);
-  animation: foodMove 3.5s infinite ease-in-out;
-}
-
-@keyframes snakeMove {
-  0% { left: 0; top: 0; transform: scale(1); }
-  25% { left: 180px; top: 0; transform: scale(1.2); }
-  50% { left: 180px; top: 180px; transform: scale(1.4); }
-  75% { left: 0; top: 180px; transform: scale(1.6); }
-  100% { left: 0; top: 0; transform: scale(1); }
-}
-
-@keyframes foodMove {
-  0% { left: 180px; top: 180px; }
-  25% { left: 0; top: 180px; }
-  50% { left: 0; top: 0; }
-  75% { left: 180px; top: 0; }
-  100% { left: 180px; top: 180px; }
-}
-
-@keyframes grow {
-  0% { transform: scale(1); }
-  25% { transform: scale(1.2); }
-  50% { transform: scale(1.4); }
-  75% { transform: scale(1.6); }
-  100% { transform: scale(1); }
 }
 
 /* Layout */
@@ -228,9 +188,9 @@ body {
   text-shadow: 0 3px 8px rgba(0, 136, 204, 0.4);
 }
 
-/* Toggle */
 .toggle-container {
-  display: inline-block;
+  display: flex;
+  align-items: center;
 }
 
 .toggle-checkbox {
@@ -240,34 +200,34 @@ body {
 .toggle-label {
   position: relative;
   display: block;
-  width: 70px;
-  height: 36px;
+  width: 60px;
+  height: 30px;
   background: #d3d3d3;
-  border-radius: 18px;
+  border-radius: 15px;
   cursor: pointer;
   transition: background 0.5s ease;
-  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .toggle-inner {
   position: absolute;
-  top: 4px;
-  left: 4px;
-  width: 28px;
-  height: 28px;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
   background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffcc00"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 0116z"/></svg>') no-repeat center;
   background-size: 18px;
   border-radius: 50%;
   transition: transform 0.5s ease;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .toggle-switch {
   position: absolute;
-  top: 4px;
-  right: 4px;
-  width: 28px;
-  height: 28px;
+  top: 3px;
+  right: 3px;
+  width: 24px;
+  height: 24px;
   background: transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%230066cc"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 0116z"/></svg>') no-repeat center;
   background-size: 18px;
   opacity: 0;
@@ -279,7 +239,7 @@ body {
 }
 
 .toggle-checkbox:checked + .toggle-label .toggle-inner {
-  transform: translateX(38px);
+  transform: translateX(30px);
 }
 
 .toggle-checkbox:checked + .toggle-label .toggle-switch {
@@ -540,7 +500,8 @@ body {
   font-size: 1.1rem;
   font-weight: 600;
   border-radius: 15px;
-  background: var(--card-bg);
+  background: var(--card-bg) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="%231c2526" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>') no-repeat right 1.2rem center;
+  background-size: 14px;
   color: var(--text-dark);
   border: 1px solid var(--glass-border);
   backdrop-filter: blur(25px) saturate(220%);
@@ -548,14 +509,11 @@ body {
   cursor: pointer;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
   appearance: none;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="%231c2526" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
-  background-repeat: no-repeat;
-  background-position: right 1.2rem center;
-  background-size: 14px;
 }
 
 [data-theme="dark"] .sort-select {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="%23f0f4f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+  background: var(--card-bg) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="%23f0f4f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>') no-repeat right 1.2rem center;
+  background-size: 14px;
 }
 
 .sort-select:hover {
@@ -591,8 +549,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  text-decoration: none;
-  color: inherit;
 }
 
 .blog-title {
