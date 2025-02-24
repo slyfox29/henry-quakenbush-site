@@ -13,14 +13,7 @@ export default function Home() {
   if (loading) {
     return (
       <div className="loader">
-        <div className="snake-game">
-          <div className="snake">
-            <div className="snake-segment"></div>
-            <div className="snake-segment"></div>
-            <div className="snake-segment"></div>
-          </div>
-          <div className="food"></div>
-        </div>
+        <div className="spinner"></div>
       </div>
     );
   }
