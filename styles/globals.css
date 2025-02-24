@@ -37,7 +37,7 @@ body {
   overflow-x: hidden;
   transition: background 0.6s ease, color 0.6s ease;
   scroll-behavior: smooth;
-  cursor: none; /* Hide default cursor */
+  cursor: none;
 }
 
 /* Fluid Motion Cursor */
@@ -49,7 +49,7 @@ body {
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease;
+  transition: width 0.3s ease, height 0.3s ease;
   mix-blend-mode: difference;
 }
 
@@ -61,7 +61,7 @@ body {
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease-out;
 }
 
 [data-theme="dark"] .cursor {
@@ -72,7 +72,7 @@ body {
   background: rgba(102, 217, 255, 0.3);
 }
 
-.cursor-hover {
+.cursor.cursor-hover {
   width: 30px;
   height: 30px;
 }
@@ -99,29 +99,33 @@ body {
 }
 
 .snake {
+  display: flex;
   position: absolute;
+  animation: snakeMove 3.5s infinite ease-in-out;
+}
+
+.snake-segment {
   width: 20px;
   height: 20px;
   background: var(--primary);
-  border-radius: 50%;
-  animation: snakeMove 3s infinite linear;
+  margin-right: 2px;
+  animation: grow 3.5s infinite ease-in-out;
 }
 
 .food {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   background: var(--accent);
-  border-radius: 50%;
-  animation: foodMove 3s infinite linear;
+  animation: foodMove 3.5s infinite ease-in-out;
 }
 
 @keyframes snakeMove {
-  0% { left: 0; top: 0; }
-  25% { left: 180px; top: 0; }
-  50% { left: 180px; top: 180px; }
-  75% { left: 0; top: 180px; }
-  100% { left: 0; top: 0; }
+  0% { left: 0; top: 0; transform: scale(1); }
+  25% { left: 180px; top: 0; transform: scale(1.2); }
+  50% { left: 180px; top: 180px; transform: scale(1.4); }
+  75% { left: 0; top: 180px; transform: scale(1.6); }
+  100% { left: 0; top: 0; transform: scale(1); }
 }
 
 @keyframes foodMove {
@@ -130,6 +134,14 @@ body {
   50% { left: 0; top: 0; }
   75% { left: 180px; top: 0; }
   100% { left: 180px; top: 180px; }
+}
+
+@keyframes grow {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(1.4); }
+  75% { transform: scale(1.6); }
+  100% { transform: scale(1); }
 }
 
 /* Layout */
@@ -301,74 +313,6 @@ body {
 
 .hero-subtitle:hover {
   transform: translateY(-2px);
-}
-
-/* Skills Section */
-.skills-section {
-  padding: 5rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.skills-title {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 3rem;
-  color: var(--primary);
-  background: linear-gradient(90deg, var(--accent), var(--primary));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-[data-theme="dark"] .skills-title {
-  background: none;
-  color: var(--primary);
-  text-shadow: 0 0 15px rgba(10, 132, 255, 0.5);
-  animation: illuminate 2s infinite alternate;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-}
-
-.skill-card {
-  padding: 2rem;
-  background: var(--card-bg);
-  border-radius: 20px;
-  box-shadow: var(--shadow);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-
-.skill-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-hover);
-}
-
-[data-theme="dark"] .skill-card {
-  box-shadow: 0 0 20px rgba(10, 132, 255, 0.6),
-              0 0 30px rgba(10, 132, 255, 0.4);
-  animation: glowPulse 2s infinite alternate;
-}
-
-.skill-icon {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 1rem;
-  transition: transform 0.5s ease;
-}
-
-.skill-card:hover .skill-icon {
-  transform: rotate(10deg) scale(1.1);
-}
-
-.skill-name {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--text-dark);
 }
 
 /* Glass Cards */
@@ -647,8 +591,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  text-decoration: none; /* Ensure no underline */
-  color: inherit; /* Inherit text color */
+  text-decoration: none;
+  color: inherit;
 }
 
 .blog-title {
@@ -772,7 +716,7 @@ body {
 }
 
 .day-number {
-  font-size: 1.2rem; /* Toned down from 1.3rem */
+  font-size: 1.2rem;
   font-weight: 600;
 }
 
@@ -785,7 +729,7 @@ body {
 }
 
 .event-title {
-  font-size: 1rem; /* Toned down from 1.1rem */
+  font-size: 1rem;
   margin-top: 0.75rem;
   text-align: center;
 }
